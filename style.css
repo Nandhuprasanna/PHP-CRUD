@@ -1,0 +1,120 @@
+ body {
+        color: #404E67;
+        background: #F5F7FA;
+		font-family: 'Open Sans', sans-serif;
+	}
+
+    .table-title {
+        padding-bottom: 10px;
+        margin: 0 0 10px;
+    }
+    .table-title h2 {
+        margin: 6px 0 0;
+        font-size: 22px;
+    }
+    .table-title .add-new {
+        float: right;
+		height: 30px;
+		font-weight: bold;
+		font-size: 12px;
+		text-shadow: none;
+		min-width: 100px;
+		border-radius: 50px;
+		line-height: 13px;
+    }
+	.table-title .add-new i {
+		margin-right: 4px;
+	}
+    table.table {
+        table-layout: fixed;     
+    }
+    table.table tr th, table.table tr td {
+        border-color: #e9e9e9;
+          font-size:2rem;
+    }
+    table.table th i {
+        margin: 0 5px;
+        cursor: pointer;
+ 
+    }
+    table.table td a {
+		cursor: pointer;
+        display: inline-block;
+        margin: 0 5px;
+		min-width: 24px;
+		
+    }    
+    table.table td a.edit {
+        color: #FFC107;
+    }
+    table.table td a.delete {
+        color: #E34724;
+    }
+    table.table td i {
+        font-size: 19px;
+    }
+	table.table td a.add i {
+        font-size: 24px;
+    	margin-right: -1px;
+        position: relative;
+        top: 3px;
+    }    
+
+div.focus {
+    box-shadow: 0 0 10px rgba(26, 154, 245, .5);
+    border: 1px solid #1a9af5;  
+    outline: 0px solid transparent;
+}
+.form-control, .btn-group a.big, .tab-pane .btn, .click2select, .help-block{
+	font-size:1.5rem;
+}
+.sign-in-up .left-inner-addon {
+    position: relative;
+}
+
+.sign-in-up .left-inner-addon input {
+    padding-left: 30px;
+}
+
+.sign-in-up .left-inner-addon i {
+    position: absolute;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+.sign-in-up .right-inner-addon {
+    position: relative;
+}
+
+.sign-in-up .right-inner-addon input {
+    padding-right: 30px;
+}
+
+.sign-in-up .right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 17px 12px;
+    pointer-events: none;
+}
+
+.sign-in-up .click2select {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.sign-in-up .paywith {
+    padding: 12px 12px 0 0;
+    margin: 0;
+    font-weight: bold;
+}
+.btn-danger, .btn-danger:hover{
+  background-color: #333399 !important;
+  border-color: #333399 !important;
+}
+.btn-primary, .btn-primary:hover{
+  background-color: #3366CC !important;
+  border-color: #3366CC !important;
+}
+input[type="text"], input[type="password"], .btn{
+  border-radius: 0px;
+}

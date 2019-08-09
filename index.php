@@ -4,6 +4,7 @@
 include 'dbconnection.php';?>
 
 <?php
+
 /**registration form**/
 if(isset($_POST['signup'])){
 	$name = $_POST['username'];
@@ -33,7 +34,10 @@ if(isset($_POST['signup'])){
 		alert('Successfully registered you email');
 		</script>
 		";
+		session_start();
+		$_SESSION['user'] = $email;		
 		header('Location: target.php');
+		exit;
 	}
 	    
   } 	
@@ -48,7 +52,10 @@ if(isset($_POST['login'])){
     $row2 = mysqli_num_rows($data2);
 	if ($row2 > 0 ) {
 	//if $row is greater than 0	
+		session_start();
+		$_SESSION['user'] = $email;
 		header('Location: target.php');
+		exit;
 	} 
 	else {
 		echo "<script language='javascript'>

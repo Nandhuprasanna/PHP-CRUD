@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 09, 2019 at 02:59 PM
+-- Generation Time: Aug 09, 2019 at 04:37 PM
 -- Server version: 5.7.27-0ubuntu0.18.04.1
 -- PHP Version: 7.0.31-1+ubuntu18.04.1+deb.sury.org+1
 
@@ -40,7 +40,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_date`, `active`) VALUES
-(57, 'Nandhini', 'nandhini.mouli@gmail.com', '123', '2019-08-09 12:55:52', 'A');
+(59, 'nandhini', 'nandhini@gmail.com', '123456', '2019-08-16 13:44:45', '1'),
+(65, 'vinoth', 'vinoth@gmail.com', '123456', '2019-08-16 13:44:45', 'A'),
+(66, 'sairam', 'sairam@gmail.com', '123456', '2019-08-09 16:35:10', 'A'),
+(67, 'vinothini', 'vinothini@gmail.com', '123456', '2019-08-09 16:35:31', 'A'),
+(68, 'bhavya', 'bhavya@gmail.com', '123456', '2019-08-09 16:35:55', 'A'),
+(69, 'vignesh', 'vignesh@gmail.com', '123456', '2019-08-09 16:36:28', 'A');
 
 --
 -- Indexes for dumped tables
@@ -60,7 +65,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

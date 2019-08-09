@@ -12,8 +12,8 @@
 $(document).ready(function() {
 	$(".edit").click(function(){
 		$(this).closest("td").siblings().attr("contenteditable","true");
-		$(".edit").closest("td").siblings().css({"background-color":"#f5f7fa", "zoom": "1", "color": "black"});
-		$(this).closest("td").siblings().css({"background-color":"#afa8a8", "zoom": "1.5", "color": "white"});		
+		$(".edit").closest("td").siblings().css({"background-color":"#f5f7fa", "zoom": "1", "color": "#000"});
+		$(this).closest("td").siblings().css({"background-color":"#ddd", "zoom": "1.2", "color": "#000"});		
 	});
 	$(".delete").click(function(){
 			var id = $(this).attr("data-id");
@@ -21,13 +21,18 @@ $(document).ready(function() {
 			type: "POST",
 			url: "target.php",
 			data: {id:id},
-			success: function(result){
-				location.reload();
+			success: function(result){				
+				$("#row_"+id).remove();
+				
 			}
 		});
 	});
 	
 	$(".save").click(function(){
+		var editable_status = $(this).closest("td").siblings().attr("contenteditable");
+		if(!editable_status) {
+			return false;
+		}
 		$(this).closest("td").siblings().attr("contenteditable","false");
 		var editable = $(this).closest("td").siblings();
 		var name = $(editable[0]).text();
@@ -38,8 +43,8 @@ $(document).ready(function() {
 			type: "POST",
 			url: "target.php",
 			data: {key:jsondata},
-			success: function(result){
-				console.log(result);
+			success: function(result) {				
+				$(".save").closest("td").siblings().css({"background-color":"#f5f7fa", "zoom": "0", "color": "black"});
 			}
 		});		
 	});	

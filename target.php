@@ -1,47 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="en">
 	
 <head>
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
+ini_set('display_errors', 1);
+session_start();
+if(!isset($_SESSION['user']) &&  ($_SESSION['user']=="")) {
+	header('Location: index.php');
+	exit;
+}
 include 'header.php';
 include 'dbconnection.php';
- 
-  if (isset($_POST['id'])) {
-		$delete = 'DELETE FROM users WHERE id = "'.$_POST['id'].'"';
-	   
-	   if (mysqli_query($conn, $delete)) {
-			return 0;
-	   } else {
-		  return 1;
-	   }
-	}
 
-
-
-
-?>
-<?php
-  if (isset($_POST['id'])) {
-	if($_POST['key']!="") {	
-		$arr = json_decode($_POST['key']);	
-		echo $id = $arr["key"]["id"];exit;
-		$name = $arr["key"]["name"];
-		$email = $arr["key"]["email"];
-		echo $results = "update users set name=".$name.", email=".$email." where id=''";
-		exit;
-		mysqli_query($conn, $results); 
-		echo "success";
-		exit;
-	}
+/* Delete the user from table */ 
+if ((isset($_POST['id'])) && ($_POST['id']!="")) {
+	$delete = 'DELETE FROM users WHERE id = "'.$_POST['id'].'"';   
+   if (mysqli_query($conn, $delete)) {
+	  echo "success";
+   } else {
+	  echo "failure";
+   }
+   exit;
 }
 
-
-
+/* Save the edited user on table */ 
+if((isset($_POST['key'])) && ($_POST['key']!="")) {		
+	$arr = $_POST['key'];	
+	$id = $arr["id"];
+	$name = $arr["name"];
+	$email = $arr["email"];
+	$results = "update users set name='".$name."', email='".$email."' where id=".$id;
+	mysqli_query($conn, $results); 
+	if (mysqli_query($conn, $results)) {
+		echo "success";
+	}
+	else {
+	  echo "failure";
+   }
+   exit;
+}
 
 ?>
 </head>
@@ -52,7 +50,7 @@ include 'dbconnection.php';
                 <div class="row">
                     <div class="mt-5 d-flex justify-content-between col-sm-12">
 						<h2>User <b>Details</b></h2>
-							<a href="url('/')" class="float-right btn btn-secondary btn-lg">
+							<a href="./logout.php" class="float-right btn btn-secondary btn-lg">
 							  <span class="glyphicon glyphicon-log-out"></span> Logout
 							</a>
 						</div>              
@@ -75,7 +73,7 @@ include 'dbconnection.php';
 					{
 					while ($row1 = mysqli_fetch_assoc($data1)) {
 					?>
-						<tr>
+						<tr id="row_<?php echo $row1['id']; ?>">
 							<td contenteditable="false" class="editable"><?php echo $row1['name']; ?></td>
 							<td contenteditable="false" class="editable"><?php echo $row1['email']; ?></td>							
 							<td>
